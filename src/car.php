@@ -15,7 +15,7 @@
 
         function getMake()
         {
-            return $this->$make;
+            return $this->make;
         }
 
         function save()

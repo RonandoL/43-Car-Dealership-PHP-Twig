@@ -15,31 +15,31 @@
         <div class='col-md-4'>
           <h2>Bob's Cars</h2>
 
-          <form action='/tasks' method='post'>
+          <form action='/new-car' method='post'>
             <div class='form-group'>
-              <label for='task'>Enter xxxxxxxx</label>
-              <input type='text' name='task' id='task' class='form-control' placeholder='Personal Slave'>
+              <label for='make'>Enter Make of Car</label>
+              <input type='text' name='make' id='make' class='form-control' placeholder='e.g. Ford'>
             </div>
-            <button type='submit' class='btn btn-sm btn-primary'>Submit Task</button>
+            <button type='submit' class='btn btn-sm btn-primary'>Submit Car</button>
           </form>
 
           <br>
           <form action='/delete' method='post'>
-            <button type='submit' class='btn btn-sm'>Delete All Tasks</button>
+            <button type='submit' class='btn btn-sm'>Delete All Cars</button>
           </form>
 
         </div>  <!-- .col-md-3 -->
       </div>  <!-- .row -->
 
       <div class='row'>
-          <div class='col-md-3'>
-              <hr>
-
-              <!-- TWIG STUFF GOES HERE -->
-
+        {% for car in cars %}
+          <div class='col-md-6 cardiv'>
+            <h3>{{ car.getMake }}</h3>
           </div>
+        {% endfor %}
       </div>  <!-- .row -->
     </div>  <!-- .container -->
+
 
     <script src=" go get jQ Google CDN "></script>
     <script src=" map to lightbox js"></script>
