@@ -4,7 +4,7 @@
     <meta charset='utf-8'>
     <title>Bob's Cars</title>
     <link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href=" map to lightbox css">  <!-- ADD THE 3 FOLDERS FROM LIGHTBOX TO VIEWS FOLDER -->
+    <link rel="stylesheet" href="css/lightbox.css">
     <link rel="stylesheet" href="css/styles.css">
   </head>
 
@@ -17,9 +17,30 @@
 
           <form action='/new-car' method='post'>
             <div class='form-group'>
+              <label for='year'>Enter Year</label>
+              <input type='number' name='year' id='year' class='form-control' placeholder='e.g. 1999'>
+            </div>
+            <div class='form-group'>
               <label for='make'>Enter Make of Car</label>
               <input type='text' name='make' id='make' class='form-control' placeholder='e.g. Ford'>
             </div>
+            <div class='form-group'>
+              <label for='model'>Enter Model of Car</label>
+              <input type='text' name='model' id='model' class='form-control' placeholder='e.g. Mustang'>
+            </div>
+            <div class='form-group'>
+              <label for='color'>Enter Color</label>
+              <input type='text' name='color' id='color' class='form-control' placeholder='e.g. Ford'>
+            </div>
+            <div class='form-group'>
+              <label for='price'>Enter Sale Price</label>
+              <input type='number' name='price' id='price' class='form-control' placeholder='e.g. 23000'>
+            </div>
+            <div class='form-group'>
+              <label for='image'>Enter URL for car image</label>
+              <input type='text' name='image' id='image' class='form-control' placeholder='e.g. http://cars.com/redcar.jpg'>
+            </div>
+
             <button type='submit' class='btn btn-sm btn-primary'>Submit Car</button>
           </form>
 
@@ -33,16 +54,25 @@
 
       <div class='row'>
         {% for car in cars %}
-          <div class='col-md-6 cardiv'>
-            <h3>{{ car.getMake }}</h3>
+          <div class='col-md-6'>
+            <div class="col-md-12 cardiv">
+              <div class="col-md-6">
+                <h3>{{ car.getYear }} {{ car.getMake }} {{ car.getModel }}</h3>
+                <h4>{{ car.getColor }}</h4>
+                <h4>${{ car.getPrice }}</h4>
+              </div>
+              <div class="col-md-6">
+                <a href='{{ car.getImage }}' data-lightbox='image-1' data-title='{{ car.getYear }} {{ car.getMake }} {{ car.getModel }} | {{ car.getPrice }}'><img src='{{ car.getImage }}' class='image-thumbnail'></a>
+              </div>
+            </div>
           </div>
         {% endfor %}
       </div>  <!-- .row -->
     </div>  <!-- .container -->
 
 
-    <script src=" go get jQ Google CDN "></script>
-    <script src=" map to lightbox js"></script>
-    <script src=" go get bootstrap js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/lightbox.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
 </html>

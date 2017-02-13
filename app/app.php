@@ -22,7 +22,7 @@
 
   // 2. POST-Instantiate Route for sending new object (new task) to /tasks URL
     $app->post('/new-car', function() use ($app) {
-      $car = new Car($_POST['make']);
+      $car = new Car(ucfirst($_POST['make']), ucfirst($_POST['model']), number_format($_POST['year']), ucfirst($_POST['color']), number_format($_POST['price']), $_POST['image']);
       $car->save();
 
       return $app['twig']->render('cars.html.twig', array('cars' => $_SESSION['list_of_cars']));
